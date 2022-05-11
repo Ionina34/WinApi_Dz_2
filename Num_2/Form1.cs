@@ -22,6 +22,12 @@ namespace Num_2
         {
             dateTimePicker1.ValueChanged += Date;
             dateTimePicker2.ValueChanged += Date;
+
+            this.BackColor = Color.Aqua;
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(new Rectangle(55, 55, 400, 400));
+            Region region = new Region(path);
+            this.Region = region;
         }
         private void Date(object sender, EventArgs e)
         {
@@ -35,6 +41,11 @@ namespace Num_2
             }
             if (time.Days > 0)
                 Result.Text = $"{time.Days.ToString()} дней";
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
